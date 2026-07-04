@@ -1233,17 +1233,27 @@
     mpNow.textContent = '♪ ' + REGION_LABELS[region];
     if (!wantsPlaying) { audio.src = REGION_TRACKS[region]; return; }
     clearInterval(fadeTimer);
+    // ★ 用"步数"而非"audio.volume 的实际值"驱动淡出→换 src。
+    // iOS Safari 上 audio.volume 是只读的（JS 设置无效、恒为 1）——若靠
+    // volume<=0.02 作为切歌条件，iOS 上永远不成立，src 永不切换，手机就
+    // "一直放第一首（东京）"。改成固定步数到点就无条件换 src：桌面能听到
+    // 平滑淡入淡出，iOS 虽无淡出效果但曲子照样会切。
+    var FADE_STEPS = 8;
+    var outStep = 0;
     fadeTimer = setInterval(function () {
-      audio.volume = Math.max(0, audio.volume - 0.05);
-      if (audio.volume <= 0.02) {
+      outStep++;
+      audio.volume = Math.max(0, 0.38 * (1 - outStep / FADE_STEPS));
+      if (outStep >= FADE_STEPS) {
         clearInterval(fadeTimer);
         audio.src = REGION_TRACKS[region];
         audio.currentTime = 0;
         tryPlay();
         showBadge('♪ 切换到 ' + REGION_LABELS[region] + ' 氛围');
+        var inStep = 0;
         fadeTimer = setInterval(function () {
-          audio.volume = Math.min(0.38, audio.volume + 0.05);
-          if (audio.volume >= 0.36) clearInterval(fadeTimer);
+          inStep++;
+          audio.volume = Math.min(0.38, 0.38 * inStep / FADE_STEPS);
+          if (inStep >= FADE_STEPS) clearInterval(fadeTimer);
         }, 55);
       }
     }, 55);
