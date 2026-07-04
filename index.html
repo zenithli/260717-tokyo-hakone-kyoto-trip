@@ -1206,67 +1206,40 @@
     showBadge._t = setTimeout(function () { badge.classList.remove('show'); }, 2600);
   }
 
-  // Some browsers/CDNs stall an <audio preload> element's own incremental
-  // range-request loading (readyState stuck at HAVE_NOTHING indefinitely)
-  // even though a plain fetch() of the identical URL succeeds instantly.
-  // Sidestep that whole failure mode: fetch each ~2.4MB track fully as a
-  // Blob up front and feed the <audio> element an Object URL instead of the
-  // bare file path — this removes any dependency on the element's own
-  // streaming/range-probing behavior.
-  var trackBlobUrls = {};
-  var trackFetches = {};
-  function fetchTrack(region) {
-    if (trackFetches[region]) return trackFetches[region];
-    trackFetches[region] = fetch(REGION_TRACKS[region])
-      .then(function (r) { return r.blob(); })
-      .then(function (blob) {
-        var url = URL.createObjectURL(blob);
-        trackBlobUrls[region] = url;
-        return url;
-      })
-      .catch(function () { return REGION_TRACKS[region]; });
-    return trackFetches[region];
+  // 播放尝试：直接对 <audio> 调 play()（用普通文件 URL，不经过任何
+  // fetch/Promise 包装——那样会脱离用户手势上下文而被浏览器拦下）。
+  // 失败就静默，交给下面的"自然交互兜底"接手。
+  function tryPlay() {
+    var p = audio.play();
+    if (p && typeof p.catch === 'function') p.catch(function () {});
   }
-  // Kick off fetching every track immediately — plain fetch() needs no user
-  // gesture, so this starts the instant the script runs, well before the
-  // visitor even clicks "进入旅程".
-  Object.keys(REGION_TRACKS).forEach(fetchTrack);
 
-  // If a play() call gets silently rejected (autoplay policy) or genuinely
-  // hangs, don't just swallow it — arm a one-time recovery on the next
-  // tap/click anywhere on the page so audio resumes instead of staying dead
-  // with no visible sign anything went wrong.
-  function attemptPlay() {
-    fetchTrack(currentRegion).then(function (url) {
-      if (audio.src !== url) { audio.src = url; }
-      var p = audio.play();
-      if (p && typeof p.catch === 'function') {
-        p.catch(function () {
-          var resume = function () {
-            if (wantsPlaying && audio.paused) audio.play().catch(function () {});
-          };
-          document.addEventListener('click', resume, { once: true });
-          document.addEventListener('touchstart', resume, { once: true, passive: true });
-        });
-      }
-    });
+  // ★ 自然触发兜底（关键）★
+  // 浏览器为防打扰，会拦截"非用户主动"的带声音自动播放，而且这个判定
+  // 时机很挑剔。与其只赌"点进入按钮"那单独一次，不如把播放绑定到用户
+  // 任何一个自然动作上——往下滚看行程、点一下页面、手机上手指一碰、
+  // 按个键——任意一个都会顺势把音乐接上；一旦成功在播就不再打扰。
+  // 这是浏览器音频最自然、也最稳的做法。
+  function resumeOnGesture() {
+    if (wantsPlaying && audio.paused) tryPlay();
   }
+  ['pointerdown', 'touchstart', 'keydown', 'wheel'].forEach(function (evt) {
+    window.addEventListener(evt, resumeOnGesture, { passive: true });
+  });
 
   function switchRegion(region) {
     if (region === currentRegion || !REGION_TRACKS[region]) return;
     currentRegion = region;
     mpNow.textContent = '♪ ' + REGION_LABELS[region];
-    if (!wantsPlaying) { fetchTrack(region).then(function (url) { audio.src = url; }); return; }
+    if (!wantsPlaying) { audio.src = REGION_TRACKS[region]; return; }
     clearInterval(fadeTimer);
     fadeTimer = setInterval(function () {
       audio.volume = Math.max(0, audio.volume - 0.05);
       if (audio.volume <= 0.02) {
         clearInterval(fadeTimer);
-        fetchTrack(region).then(function (url) {
-          audio.src = url;
-          audio.currentTime = 0;
-          attemptPlay();
-        });
+        audio.src = REGION_TRACKS[region];
+        audio.currentTime = 0;
+        tryPlay();
         showBadge('♪ 切换到 ' + REGION_LABELS[region] + ' 氛围');
         fadeTimer = setInterval(function () {
           audio.volume = Math.min(0.38, audio.volume + 0.05);
@@ -1289,7 +1262,7 @@
     sentinels.forEach(function (el) { io.observe(el); });
   }
 
-  function playAudio() { wantsPlaying = true; attemptPlay(); }
+  function playAudio() { wantsPlaying = true; tryPlay(); }
   function pauseAudio() { wantsPlaying = false; audio.pause(); }
 
   mpBtn.addEventListener('click', function () { audio.paused ? playAudio() : pauseAudio(); });
