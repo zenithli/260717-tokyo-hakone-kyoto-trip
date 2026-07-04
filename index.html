@@ -1206,6 +1206,38 @@
     showBadge._t = setTimeout(function () { badge.classList.remove('show'); }, 2600);
   }
 
+  // Warm the other two tracks into the browser's HTTP cache right away, so a
+  // region switch never has to wait on a cold fetch of a ~2.4MB file.
+  var tracksWarmed = false;
+  function warmTracks() {
+    if (tracksWarmed) return;
+    tracksWarmed = true;
+    Object.keys(REGION_TRACKS).forEach(function (r) {
+      var src = REGION_TRACKS[r];
+      if (src === audio.getAttribute('src')) return;
+      var warm = new Audio();
+      warm.preload = 'auto';
+      warm.src = src;
+    });
+  }
+
+  // If a play() call gets silently rejected (autoplay policy, or the file
+  // wasn't buffered yet), don't just swallow it — arm a one-time recovery on
+  // the next tap/click anywhere on the page so audio resumes instead of
+  // staying dead with no visible sign anything went wrong.
+  function attemptPlay() {
+    var p = audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function () {
+        var resume = function () {
+          if (wantsPlaying && audio.paused) audio.play().catch(function () {});
+        };
+        document.addEventListener('click', resume, { once: true });
+        document.addEventListener('touchstart', resume, { once: true, passive: true });
+      });
+    }
+  }
+
   function switchRegion(region) {
     if (region === currentRegion || !REGION_TRACKS[region]) return;
     currentRegion = region;
@@ -1218,7 +1250,7 @@
         clearInterval(fadeTimer);
         audio.src = REGION_TRACKS[region];
         audio.currentTime = 0;
-        audio.play().catch(function () {});
+        attemptPlay();
         showBadge('♪ 切换到 ' + REGION_LABELS[region] + ' 氛围');
         fadeTimer = setInterval(function () {
           audio.volume = Math.min(0.38, audio.volume + 0.05);
@@ -1241,7 +1273,7 @@
     sentinels.forEach(function (el) { io.observe(el); });
   }
 
-  function playAudio() { wantsPlaying = true; audio.play().catch(function () {}); }
+  function playAudio() { wantsPlaying = true; attemptPlay(); warmTracks(); }
   function pauseAudio() { wantsPlaying = false; audio.pause(); }
 
   mpBtn.addEventListener('click', function () { audio.paused ? playAudio() : pauseAudio(); });
