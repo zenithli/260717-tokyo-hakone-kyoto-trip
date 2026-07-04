@@ -1249,18 +1249,38 @@
     }, 55);
   }
 
-  // Sentinels sit at the top of each region; whichever one has most recently
-  // crossed the viewport's vertical center marks the "active" region — this
-  // works regardless of how tall a region's own content is.
-  const sentinels = document.querySelectorAll('.bgm-sentinel[data-bgm-region]');
-  if ('IntersectionObserver' in window && sentinels.length) {
-    const io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) switchRegion(e.target.getAttribute('data-bgm-region'));
-      });
-    }, { rootMargin: '-49% 0px -49% 0px', threshold: 0 });
-    sentinels.forEach(function (el) { io.observe(el); });
+  // 判断此刻该播哪座城市的曲子：在三个哨兵里，取"已经滚过视口中线"
+  // 的最靠下那一个。直接用滚动位置算，而不是靠 IntersectionObserver 的
+  // 窄判定带——后者若判定带只有中线附近几个像素，快速滚动时 1px 的哨兵
+  // 可能一帧都没落进带里就整个跳过，切歌于是永远不触发（这正是之前
+  // "明明滚到箱根/京都了却还放东京曲"的真正原因）。基于位置的判断不会
+  // 跳过，对快速滚动、程序化滚动都稳。
+  const sentinels = Array.prototype.slice.call(
+    document.querySelectorAll('.bgm-sentinel[data-bgm-region]')
+  );
+  function pickRegionByScroll() {
+    if (!sentinels.length) return;
+    var line = window.innerHeight * 0.5;
+    // 默认第一座城市（东京）——覆盖 hero / 一眼看懂 等"还没到东京哨兵"的顶部区；
+    // 往下每有一个哨兵越过中线，就更新成它，取最靠下越过的那个。
+    var active = sentinels[0].getAttribute('data-bgm-region');
+    sentinels.forEach(function (el) {
+      if (el.getBoundingClientRect().top <= line) {
+        active = el.getAttribute('data-bgm-region');
+      }
+    });
+    switchRegion(active);
   }
+  var scrollScheduled = false;
+  window.addEventListener('scroll', function () {
+    if (scrollScheduled) return;
+    scrollScheduled = true;
+    requestAnimationFrame(function () {
+      scrollScheduled = false;
+      pickRegionByScroll();
+    });
+  }, { passive: true });
+  pickRegionByScroll();
 
   function playAudio() { wantsPlaying = true; tryPlay(); }
   function pauseAudio() { wantsPlaying = false; audio.pause(); }
