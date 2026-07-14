@@ -346,6 +346,11 @@
   .day-badge{font-family:"Cormorant Garamond",serif; font-style:italic; background:linear-gradient(135deg, var(--gold-deep), var(--gold)); color:#fff; padding:6px 18px; border-radius:30px; font-size:14px; font-weight:600; letter-spacing:0.08em; box-shadow:0 3px 10px rgba(138,100,32,0.25)}
   .day-h{font-family:"Noto Serif SC",serif; font-size:24px; font-weight:500; color:var(--ink)}
   .day-h small{display:block; font-size:12px; color:var(--muted); font-family:"JetBrains Mono",monospace; letter-spacing:0.04em; margin-top:3px; font-weight:400}
+  .day-weather{margin-left:auto; display:inline-flex; align-items:center; gap:9px; background:linear-gradient(135deg,#eaf4fb,#f6fbff); border:1px solid var(--line-rail); border-radius:22px; padding:7px 15px; font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--rail-deep); white-space:nowrap; align-self:center}
+  .day-weather .ico{font-size:16px; line-height:1}
+  .day-weather .t{font-weight:600}
+  .day-weather .cond{color:var(--muted); font-weight:400}
+  @media(max-width:680px){.day-weather{margin-left:0; margin-top:6px}}
   .timeline{display:grid; gap:14px}
   .slot{display:grid; grid-template-columns:110px 1fr; grid-template-areas:"time event"; gap:18px; align-items:stretch}
   .slot .time{grid-area:time; background:linear-gradient(135deg, var(--green-deep) 0%, var(--green) 100%); color:#fff; border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px 8px; box-shadow:0 4px 12px rgba(61,97,71,0.22)}
@@ -687,7 +692,7 @@
 
 <!-- Day panels TOKYO -->
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 1</div><div class="day-h">7月18日（六）· 抵达·恢复日<small>ARRIVAL RECOVERY</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 1</div><div class="day-h">7月18日（六）· 抵达·恢复日<small>ARRIVAL RECOVERY</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约30°/25°</span><span class="cond">东京·闷热·雨40%</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>15:05</strong><em>落地</em></div><div class="event"><h3>羽田机场 HND 抵达（NH7543 · 直飞 11h25m）</h3><p><strong>是羽田，不是成田。</strong>入境 + 取行李大约要 1 小时。</p></div></div>
     <div class="slot transit-slot"><div class="time"><strong>16:30</strong><em>接驳</em></div><div class="event"><h3>利木津巴士 → 直接停酒店正门（约70分 · ¥1,400）</h3><p>4 人 + 行李箱<strong>全程零换乘</strong>，行李进车底舱。出关后找「リムジンバス」柜台。详见下方「换乘导航 STEP 0」。</p></div></div>
@@ -699,7 +704,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 2</div><div class="day-h">7月19日（日）· 东京精华<small>TOKYO HIGHLIGHTS</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 2</div><div class="day-h">7月19日（日）· 东京精华<small>TOKYO HIGHLIGHTS</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约30°/24°</span><span class="cond">东京·闷热·雨40%</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>09:00</strong><em>上午</em></div><div class="event"><h3>明治神宫 → 表参道</h3><p>森林参道 + 林荫大道散步，节奏很慢。</p></div></div>
     <div class="slot"><div class="time"><strong>12:30</strong><em>午餐</em></div><div class="event"><h3>Maisen 豚肉店（とんかつ）</h3><p>经典东京炸猪排店，全家都吃得惯。</p></div></div>
@@ -710,7 +715,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 3</div><div class="day-h">7月20日（一·海の日）· 镰仓一日游<small>EASY DAY TRIP</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 3</div><div class="day-h">7月20日（一·海の日）· 镰仓一日游<small>EASY DAY TRIP</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约32°/24°</span><span class="cond">镰仓·晴热·三连休</span></div></div>
   <div class="timeline">
     <div class="slot transit-slot"><div class="time"><strong>09:00</strong><em>出发</em></div><div class="event"><h3>新宿站 → 镰仓站（JR湘南新宿线·直达）</h3><p>从新宿有<strong>直达镰仓的班次</strong>，不用换乘。<br>⚠️ <strong>这里有个真陷阱：湘南新宿线分两支。</strong>只有开往<strong>「逗子」</strong>的（经横须贺线，走大船→北镰仓→镰仓）才到镰仓；开往<strong>「小田原 / 平塚」</strong>的走东海道线经藤泽，<strong>根本不经过镰仓</strong>。<strong>上车前一定看车头终点显示「逗子」。</strong><br><small>※ 各乗換案内（NAVITIME/駅探/ジョルダン）均有此直通班次；JR官网未直接刊载新宿→镰仓耗时数字，请以当天时刻表为准。</small></p></div></div>
     <div class="slot"><div class="time"><strong>10:30</strong><em>镰仓</em></div><div class="event"><h3>大佛（高德院）· 长谷寺 · 由比滨海岸</h3><p>比东京市区松弛很多，适合当"喘口气"的一天。<strong>7/20 是「海の日」三连休的最后一天</strong>，镰仓也会有人——但户外海边比主题乐园抗挤得多，这也正是把迪士尼挪到隔天平日的原因。</p></div></div>
@@ -719,7 +724,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 4</div><div class="day-h">7月21日（二·平日）· 全家玩乐日<small>FAMILY FUN DAY</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 4</div><div class="day-h">7月21日（二·平日）· 全家玩乐日<small>FAMILY FUN DAY</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约32°/24°</span><span class="cond">东京·晴热·平日</span></div></div>
   <div class="timeline">
     <div class="slot highlight"><div class="time"><strong>09:00</strong><em>方案A</em></div><div class="event"><h3>东京迪士尼海洋 DisneySea（推荐）</h3><p><strong>特意排在周二平日</strong>——7/18–20 是「海の日」三连休，7/20 是全周最挤的一天，主题乐园放这天体验会差很多。<br><strong>全部是"入园日指定"票、门口不卖票</strong>（官方：约<strong>2个月前同日14:00</strong>开售）。查证时官方售票状态仍是「<strong>○ 販売中</strong>」，<strong>但官方明说售罄会"预告なく販売停止"，请尽快下单</strong>。<br>票价参考：大人 ¥10,900 / <strong>中人（12–17岁）¥9,000</strong> → 3大1中约 <strong>¥41,700</strong>（平日票价可能更低，以官网为准）。</p></div></div>
     <div class="slot"><div class="time"><strong>09:00</strong><em>方案B</em></div><div class="event"><h3>teamLab Borderless（麻布台之丘）</h3><p><strong>地址已变：</strong>原台场馆2022年闭馆，现址在<strong>麻布台之丘 Azabudai Hills</strong>（港区虎ノ门5-9 ガーデンプラザB B1F）。<strong>日期+时间指定制</strong>，查证时 7/16–7/31 日历<strong>未标售罄</strong>，7/20、7/21 正常开馆（7月休馆日只有 7/7、7/15）。<br>票价：成人动态定价 ¥3,600–5,600 / 13–17岁 ¥2,800 / 现场购票 +¥200。</p></div></div>
@@ -809,7 +814,7 @@
 
 <!-- Day panels HAKONE -->
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 5</div><div class="day-h">7月22日（三）· 移动 · 抵达箱根<small>ARRIVE HAKONE</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 5</div><div class="day-h">7月22日（三）· 移动 · 抵达箱根<small>ARRIVE HAKONE</small></div><div class="day-weather"><span class="ico">🌿</span><span class="t">箱根约30°/23°</span><span class="cond">移动日·山里凉些</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>12:00</strong><em>退房</em></div><div class="event"><h3>Park Hyatt Tokyo 退房</h3><p>东京段结束。行李收好，走（或坐免费班车）去小田急新宿站。</p></div></div>
     <div class="slot transit-slot"><div class="time"><strong>午后</strong><em>移动</em></div><div class="event"><h3>新宿 → 箱根汤本 → 元箱根港（见上方换乘导航 STEP 1）</h3><p>浪漫特快约80分 + 箱根登山巴士约30–40分。⚠️ 巴士要认「<strong>箱根登山バス</strong>」，别上伊豆箱根バス（不在周游券覆盖内）。</p></div></div>
@@ -820,7 +825,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 6</div><div class="day-h">7月23日（四）· 箱根精华<small>HAKONE HIGHLIGHTS</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 6</div><div class="day-h">7月23日（四）· 箱根精华<small>HAKONE HIGHLIGHTS</small></div><div class="day-weather"><span class="ico">🌿</span><span class="t">约30°/23°</span><span class="cond">箱根·凉爽·雨40%</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>上午</strong><em>游览</em></div><div class="event"><h3>海贼船 → 桃源台 → 箱根缆车 → 大涌谷</h3><p><strong>住在元箱根的最大好处：海贼船的元箱根港码头就在酒店旁边（步行约3分钟）。</strong>坐海贼船横渡芦之湖到<strong>桃源台</strong>（官方约25–40分），再换<strong>箱根空中缆车</strong>上<strong>大涌谷</strong>（官方各区间约10分、约1分钟1班；桃源台→大涌谷要过2个区间）。晴天可远眺富士山。<br><small>※ 海贼船、缆车、登山巴士都在<strong>箱根周游券覆盖范围内</strong>。</small></p></div></div>
     <div class="slot"><div class="time"><strong>下午</strong><em>艺术</em></div><div class="event"><h3>箱根雕刻之森美术馆 ⚠️ 上车前先看车头字母</h3><p><strong>好消息：这里根本不是预约制</strong>（官网 FAQ 原话「いいえ、予約制ではありません」）——当天走进去买票就行，不用担心约不到。9:00–17:00、<strong>全年无休</strong>、入馆截止 16:30。买 <strong>WEB 票更便宜</strong>（一般 ¥1,800 / 窗口 ¥2,000）还能免排队。<br><strong>⚠️ 但这里有个真陷阱：从元箱根港坐巴士去，必须坐「H（箱根町线）」，在「二の平入口」下车再走约6分钟。</strong>「<strong>R（箱根新道线）</strong>」走的是收费道路，<strong>根本不停二の平入口</strong>——上错就直接飞过美术馆了。（保险起见也可以：坐巴士回箱根汤本 → 换登山电车到「彫刻の森」站，出站步行2分钟。）</p></div></div>
@@ -962,7 +967,7 @@
 
 <!-- Day panels KYOTO -->
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 7</div><div class="day-h">7月24日（五）· 移动 · 抵达京都<small>ARRIVE KYOTO</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 7</div><div class="day-h">7月24日（五）· 移动 · 抵达京都<small>ARRIVE KYOTO</small></div><div class="day-weather"><span class="ico">🌧️</span><span class="t">箱根雨60%→京都33°</span><span class="cond">最需带伞的一天</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>10:00</strong><em>退房</em></div><div class="event"><h3>楽天STAY 元箱根 退房（比一般酒店早）</h3><p>⚠️ <strong>这天的降水概率是全程最高的 60%</strong>——雨天山路巴士会慢，早点出门，别卡新干线的点。</p></div></div>
     <div class="slot transit-slot"><div class="time"><strong>上午–午后</strong><em>移动</em></div><div class="event"><h3>元箱根 → 小田原 → 京都 → 丸太町（见换乘导航 STEP 2）</h3><p>巴士约50分到小田原 → <strong>ひかり</strong>（⚠️ <strong>のぞみ不停小田原</strong>，班次少要先查时刻）→ 京都站 → <strong>地下铁烏丸線 8 分到丸太町</strong>，6番出口直结。</p></div></div>
@@ -973,7 +978,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 8</div><div class="day-h">7月25日（六）· 嵐山<small>ARASHIYAMA</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 8</div><div class="day-h">7月25日（六）· 嵐山<small>ARASHIYAMA</small></div><div class="day-weather"><span class="ico">🌡️</span><span class="t">约34°/25°</span><span class="cond">京都·盆地闷热</span></div></div>
   <div class="timeline">
     <div class="slot transit-slot"><div class="time"><strong>上午</strong><em>竹林</em></div><div class="event"><h3>竹林小径 · 保津川沿岸散步</h3><p>JR嵯峨野线快速约10分钟直达嵯峨嵐山站。<strong>竹林越早去人越少</strong>，周六尤其。</p></div></div>
     <div class="slot"><div class="time"><strong>12:30</strong><em>午餐</em></div><div class="event"><h3>松楽庵 Shoraian</h3><p>河边的荞麦豆腐料理，环境清幽。</p></div></div>
@@ -982,7 +987,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 9</div><div class="day-h">7月26日（日）· 寺庙与市场<small>TEMPLES & MARKETS</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 9</div><div class="day-h">7月26日（日）· 寺庙与市场<small>TEMPLES & MARKETS</small></div><div class="day-weather"><span class="ico">🌡️</span><span class="t">约35°/25°</span><span class="cond">京都·最热的一天</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>上午</strong><em>寺庙</em></div><div class="event"><h3>金阁寺 → 龙安寺</h3><p>金箔舍利殿 + 枯山水石庭。</p></div></div>
     <div class="slot"><div class="time"><strong>下午</strong><em>市场</em></div><div class="event"><h3>锦市场 · 购物</h3><p>抹茶、陶器、日本刀具、茶具，"京都的厨房"边走边吃。<strong>锦市场离酒店走路只要约10分钟</strong>——逛不完，任何一个傍晚都能再去补。</p></div></div>
@@ -992,7 +997,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 10</div><div class="day-h">7月27日（一）· USJ + 道顿堀（大阪日）<small>USJ &amp; OSAKA NIGHT</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 10</div><div class="day-h">7月27日（一）· USJ + 道顿堀（大阪日）<small>USJ &amp; OSAKA NIGHT</small></div><div class="day-weather"><span class="ico">🌡️</span><span class="t">约34°/26°</span><span class="cond">USJ·户外一整天</span></div></div>
   <div class="timeline">
     <div class="slot transit-slot"><div class="time"><strong>06:45</strong><em>出发</em></div><div class="event"><h3>出酒店 → 京都站 → 大阪 → 环球城站</h3><p>丸太町 →（地铁烏丸線）→ 京都站 →（JR新快速）→ 大阪 →（大阪環状線）→ 西九条 →（JRゆめ咲線）→ <strong>ユニバーサルシティ駅</strong>，出站就是园区。<strong>门到门约 75–90 分钟</strong>，换乘 2–3 次（部分班次从大阪站直通，可省一次换乘）。</p></div></div>
     <div class="slot highlight"><div class="time"><strong>08:15</strong><em>开园前</em></div><div class="event"><h3>到闸口排队 · 入园第一件事＝领整理券</h3><p><strong>7/27 是 08:30 开园</strong>（USJ 把这三天全部提前了半小时＝它自己预期高客流）。<strong>入园后立刻打开官方 APP 领「超级任天堂世界」的整理券</strong>——官方明说<strong>会发完、可能领不到</strong>。这是这一天成败的关键动作。</p></div></div>
@@ -1003,7 +1008,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 11</div><div class="day-h">7月28日（二）· 京都 → 回东京<small>BACK TO TOKYO</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 11</div><div class="day-h">7月28日（二）· 京都 → 回东京<small>BACK TO TOKYO</small></div><div class="day-weather"><span class="ico">🌡️</span><span class="t">京都35°→东京31°</span><span class="cond">移动日</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>上午</strong><em>最后购物</em></div><div class="event"><h3>京都伴手礼：抹茶 · 陶瓷 · 文具 · 护肤品</h3><p>锦市场走路 10 分钟就到，京都的最后补货很方便。</p></div></div>
     <div class="slot"><div class="time"><strong>12:00</strong><em>退房</em></div><div class="event"><h3>Hyatt Place Kyoto 退房</h3><p>⚠️ <strong>今天不是回国日</strong>——飞机是<strong>明天(7/29)从东京成田</strong>飞。今天要<strong>坐新干线回东京</strong>。</p></div></div>
@@ -1014,7 +1019,7 @@
 </div>
 
 <div class="day-panel">
-  <div class="day-header-row"><div class="day-badge">DAY 12</div><div class="day-h">7月29日（三）· 成田归国<small>DEPARTURE DAY</small></div></div>
+  <div class="day-header-row"><div class="day-badge">DAY 12</div><div class="day-h">7月29日（三）· 成田归国<small>DEPARTURE DAY</small></div><div class="day-weather"><span class="ico">☀️</span><span class="t">约32°/25°</span><span class="cond">东京·晴热·下午飞</span></div></div>
   <div class="timeline">
     <div class="slot"><div class="time"><strong>上午</strong><em>自由</em></div><div class="event"><h3>东京最后的上午（睡到自然醒都行）</h3><p><strong>飞机下午 16:45 才起飞，不是早班机</strong>——上午完全可以再逛阿美横町、上野公园，吃个从容的早午餐。<strong>这就是不住机场酒店换来的一个上午。</strong></p></div></div>
     <div class="slot transit-slot"><div class="time"><strong>12:00–12:15</strong><em>出发</em></div><div class="event"><h3>日暮里 → Skyliner → 成田机场 NRT（见换乘导航 STEP 4）</h3><p>⚠️ <strong>是成田，不是羽田！</strong>你们是<strong>羽田进、成田出</strong>。<br><strong>算法</strong>：16:45 起飞 → 国际线<strong>提前 3 小时到</strong> → <strong>13:45 前到成田</strong>。Skyliner 官网标称最速 36 分，<strong>但按 45–50 分留缓冲</strong>（加上进站、等车、行李）→ <strong>12:00–12:15 从酒店出发最稳</strong>。</p></div></div>
@@ -1122,7 +1127,7 @@
 <!-- ============ WEATHER ============ -->
 <div class="day-panel">
   <div class="day-header-row"><div class="day-badge">天气</div><div class="day-h">每天的天气 / Weather<small>WEATHERNEWS · 2026-07-14 实查</small></div></div>
-  <p class="section-sub" style="margin:0 auto 22px;max-width:760px">一句话：<strong>京都最热（连日 33–35°）、箱根最凉（30°/23°）、东京居中</strong>。全程都是「熱中症警戒」级别的暑热，<strong>7/24 从箱根去京都那天降水概率 60%，是全程最需要带伞的一天</strong>。<br><small>（<strong>7/28–7/29 回东京的最后两天，本次查询时已超出可靠预报范围 → 数字待临行前复查，下面不编</strong>。）</small></p>
+  <p class="section-sub" style="margin:0 auto 22px;max-width:760px">一句话：<strong>京都最热（连日 33–35°）、箱根最凉（30°/23°）、东京居中（30–32°）</strong>。全程都是「熱中症警戒」级别的暑热，<strong>7/24 从箱根去京都那天降水概率 60%，是全程最需要带伞的一天</strong>。<br><small>每天的天气也直接标在下面各 Day 的标题右边了。</small></p>
   <div class="info-grid">
     <div class="info-card">
       <div class="label">Tokyo · 东京（7/18–7/22）</div>
@@ -1132,9 +1137,8 @@
         <div class="row"><span>7/19 日</span>30° / 24° · 降水 40%</div>
         <div class="row"><span>7/20 一</span>32° / 24° · 降水 30%</div>
         <div class="row"><span>7/21 二</span>32° / 24° · 降水 30%</div>
-        <div class="row"><span>7/22 三</span>32° / 25° · 降水 30%</div>
-        <div class="row"><span>7/28–29</span><strong>回东京的最后两天 — 待查</strong>（超出本次可靠预报范围，不编数字）</div>
-        <div class="row caveat">※ 查询当周（7/16）东京最高 36°，官网挂着「危険な暑さ・熱中症に警戒」；预报说<strong>之后酷暑会稍缓，但仍在平年值或以上</strong>。<br>※ <strong>7/28–7/29 请临行前再查一次东京</strong>（最后一天要拖行李去成田，下雨会很不一样）。</div>
+        <div class="row"><span>7/22 三</span>32° / 25° · 降水 30%（上午在东京，午后去箱根）</div>
+        <div class="row caveat">※ 查询当周（7/16）东京最高 <strong>36°</strong>，官网挂着「<strong>危険な暑さ・熱中症に警戒</strong>」；预报说<strong>你们到的那几天酷暑会稍缓（30–32°），但仍在平年值或以上</strong>。<br>※ 7/18、7/19 <strong>降水 40%</strong>——落地头两天带把伞。</div>
       </div>
     </div>
     <div class="info-card">
@@ -1154,13 +1158,22 @@
         <div class="row"><span>7/24 五</span>33° / 26° · 降水 40%</div>
         <div class="row"><span>7/25 六</span>34° / 25° · 降水 40%</div>
         <div class="row"><span>7/26 日</span>35° / 25° · 降水 40%</div>
-        <div class="row"><span>7/27 一</span>34° / 25° · 降水 30%（USJ 日）</div>
-        <div class="row"><span>7/28 二</span>35° / 26° · 降水 40%</div>
-        <div class="row caveat">※ 京都是盆地，闷热感比数字更强。嵐山竹林、金阁寺尽量安排在<strong>上午</strong>；<strong>USJ 那天要在户外站一整天，防晒/帽子/水/盐分补给一定备足</strong>。</div>
+        <div class="row"><span>7/27 一</span><strong>USJ 34° / 26° · 降水 40%</strong>（weathernews 有「ユニバ(USJ)」专属预报）</div>
+        <div class="row"><span>7/28 二</span>35° / 26° · 降水 40%（上午在京都）</div>
+        <div class="row caveat">※ 京都是盆地，闷热感比数字更强。嵐山竹林、金阁寺尽量安排在<strong>上午</strong>。<br>※ <strong>7/27 USJ 要在户外站一整天（34°/26°、降水40%）</strong>——防晒、帽子、水、盐分补给、雨具一定备足。</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="label">Tokyo 末段 · 回东京（7/28–7/29）</div>
+      <h4>☀️ 31–32° / 25–26°</h4>
+      <div class="rows">
+        <div class="row"><span>7/28 二</span>31° / 26° · 降水 30%（傍晚到东京）</div>
+        <div class="row"><span>7/29 三</span>32° / 25° · 降水 30%（下午飞成田）</div>
+        <div class="row caveat">※ 最后两天回到东京，比京都凉一点，但仍是酷暑。<br>※ <strong>7/29 要拖行李去成田</strong>——降水 30%，伞放在手边好拿的地方。</div>
       </div>
     </div>
   </div>
-  <p class="section-sub" style="margin:18px auto 0;max-width:760px;font-size:.82rem;opacity:.7">※ 数据来源：<strong>ウェザーニュース（weathernews.jp）</strong>，<strong>2026-07-14 实时查询</strong>——东京取 10 日预报（千代田区）、箱根取箱根町 2 週間预报、京都取京都市 2 週間预报。<br>⚠️ <strong>7/25 以后的预报，官方标注的「予報の信頼度」只有最低的 E 级</strong>——数字会变，<strong>请在临行前 1 周再去 weathernews.jp 复查一次</strong>（东京 / 箱根町 / 京都市 三个页面）。</p>
+  <p class="section-sub" style="margin:18px auto 0;max-width:760px;font-size:.82rem;opacity:.7">※ 数据来源：<strong>ウェザーニュース（weathernews.jp）2週間天気</strong>，<strong>2026-07-15 实时查询</strong>——东京＝千代田区、箱根＝箱根町、京都＝京都市、<strong>7/27 USJ ＝ 大阪府的「ユニバ(USJ)」专属栏</strong>。<br>⚠️ <strong>7/26 以后的预报，官方标注的「予報の信頼度」只有 D～E 级（较低）</strong>——数字会变，<strong>请在临行前再去 weathernews.jp 复查一次</strong>。</p>
 </div>
 
 <!-- ============ PACKING LIST ============ -->
