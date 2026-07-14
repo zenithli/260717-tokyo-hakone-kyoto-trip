@@ -16,23 +16,23 @@
   "license": "CC BY-SA"
  },
  "usj-globe": {
-  "title": "Universal Studios Japan: Universal Globe / ユニバーサル・スタジオ・ジャパン ユニバーサル・グローブ",
-  "artist": "Dick Thomas Johnson",
-  "license": "CC BY 2.0",
-  "source": "https://www.flickr.com/photos/31029865@N06/52479211384",
-  "note": "USJ 正门巨型环球地球仪（真实照片·2022-04-25 摄）。经 Google 图片「使用权=CC」筛选找到，授权链接 creativecommons.org/licenses/by/2.0/ 已核实"
- },
- "usj-gate": {
-  "title": "File:USJ 2018.09-24.jpg",
-  "artist": "Rebirth10",
-  "license": "CC0",
-  "note": "USJ 正门拱门（备用·已不在页面引用）"
+  "title": "USJ 环球地球仪（正门）",
+  "artist": "用户提供",
+  "license": "用户指定使用 · 非 CC 授权（来源为商业/旅游站点图片）",
+  "source": "用户放入 01_IMG/7e42ec6c-9480-11e8-9311-0af0cba29dd8.jpeg",
+  "note": "2026-07-15 用户明确指定「就按我给的那两张，不要换了」。原尺寸 918x453(2:1)，卡片竖向容器会裁掉左右约64%"
  },
  "usj-hogwarts": {
-  "title": "File:Universal Studios Japan-Harry Potter.jpg",
-  "artist": "Csiiiyu",
-  "license": "CC BY-SA 4.0",
-  "note": "USJ 哈利波特魔法世界·霍格沃茨城堡（已核实为大阪USJ，非奥兰多）"
+  "title": "哈利波特·禁忌之旅 官方宣传图",
+  "artist": "用户提供（USJ 官方素材）",
+  "license": "用户指定使用 · 非 CC 授权",
+  "source": "用户放入 01_IMG/hpo_pic_main01.avif（已转 jpg）",
+  "note": "2026-07-15 用户明确指定。CG 合成宣传画非实景照片；原尺寸仅 600x419，点开当主图会放大约1.8倍"
+ },
+ "_备用_未引用": {
+  "usj-globe-flickr": "Flickr 'Universal Studios Japan: Universal Globe' / Dick Thomas Johnson / CC BY 2.0 / 3072x2048 — 已被用户指定图替换，文件留在 01_IMG 素材库",
+  "usj-gate": "File:USJ 2018.09-24.jpg / Rebirth10 / CC0 — USJ 正门拱门",
+  "usj-hogwarts-commons": "File:Universal Studios Japan-Harry Potter.jpg / Csiiiyu / CC BY-SA 4.0 — 真实拍摄的霍格沃茨城堡"
  },
  "usj-nintendo-world": {
   "title": "File:USJ Super Nintendo World overview.jpg",
