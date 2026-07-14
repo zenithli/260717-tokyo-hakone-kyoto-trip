@@ -15,11 +15,18 @@
   "artist": "耕太郎",
   "license": "CC BY-SA"
  },
+ "usj-globe": {
+  "title": "Universal Studios Japan: Universal Globe / ユニバーサル・スタジオ・ジャパン ユニバーサル・グローブ",
+  "artist": "Dick Thomas Johnson",
+  "license": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/31029865@N06/52479211384",
+  "note": "USJ 正门巨型环球地球仪（真实照片·2022-04-25 摄）。经 Google 图片「使用权=CC」筛选找到，授权链接 creativecommons.org/licenses/by/2.0/ 已核实"
+ },
  "usj-gate": {
   "title": "File:USJ 2018.09-24.jpg",
   "artist": "Rebirth10",
   "license": "CC0",
-  "note": "USJ 正门拱门 + 环球地球标志（正面）"
+  "note": "USJ 正门拱门（备用·已不在页面引用）"
  },
  "usj-hogwarts": {
   "title": "File:Universal Studios Japan-Harry Potter.jpg",
