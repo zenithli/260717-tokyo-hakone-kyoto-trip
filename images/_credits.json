@@ -16,11 +16,11 @@
   "license": "CC BY-SA"
  },
  "usj-globe": {
-  "title": "USJ 环球地球仪（正门）",
-  "artist": "用户提供",
-  "license": "用户指定使用 · 非 CC 授权（来源为商业/旅游站点图片）",
-  "source": "用户放入 01_IMG/7e42ec6c-9480-11e8-9311-0af0cba29dd8.jpeg",
-  "note": "2026-07-15 用户明确指定「就按我给的那两张，不要换了」。原尺寸 918x453(2:1)，卡片竖向容器会裁掉左右约64%"
+  "title": "Universal Studios Japan: Universal Globe（夜景·发光地球仪）",
+  "artist": "Dick Thomas Johnson",
+  "license": "CC BY 2.0",
+  "source": "https://www.flickr.com/photos/31029865@N06/49252349458",
+  "note": "2026-07-15 用户指出原图不清晰、要 wakuwaku 感 → 换成此夜景版（蓝光地球+探照灯+水雾+前景欢庆人群）。原图 6000x4000，按卡片竖向容器比 0.723 居中纵裁 → 1400x1936，避免 CSS 盲裁裁偏、清晰度全用在可见区域。原图存 01_IMG/_candidates/usj-globe-night-6000x4000-original.jpg"
  },
  "usj-hogwarts": {
   "title": "哈利波特·禁忌之旅 官方宣传图",
